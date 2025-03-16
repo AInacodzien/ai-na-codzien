@@ -1,102 +1,131 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>A.I Na Co dzień</title>
-  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4712/4712032.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Praktyczne zastosowania sztucznej inteligencji w codziennym życiu">
+  
+  <title>A.I Na Co dzień - Praktyczne zastosowania AI</title>
+  
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4712/4712032.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <a href="#start" class="logo">
-      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712032.png" alt="logo AI" />
+  <nav aria-label="Główne menu">
+    <a href="#start" class="logo" aria-label="Strona główna">
+      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712032.png" alt="Logo AI" width="32" height="32">
       <span>A.I Na Co dzień</span>
     </a>
-    <div class="burger">
+    
+    <button class="burger" aria-label="Menu mobilne" aria-expanded="false">
       <i class="fas fa-bars"></i>
-    </div>
-    <div class="nav-links">
-      <a href="#start">Start</a>
-      <a href="#przyklady">AI</a>
-      <a href="#kontakt">Kontakt</a>
-    </div>
+    </button>
+    
+    <ul class="nav-links">
+      <li><a href="#start">Start</a></li>
+      <li><a href="#przyklady">Przykłady</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
   </nav>
 
-  <header id="start">
-    <h1>A.I Na Co dzień</h1>
-    <p>Odkrywaj potencjał sztucznej inteligencji w codziennym życiu – praktyczne porady, trendy i przykłady.</p>
-  </header>
+  <main>
+    <header id="start">
+      <h1>Poznaj potencjał sztucznej inteligencji</h1>
+      <p class="lead">Odkrywaj praktyczne zastosowania AI w codziennym życiu, biznesie i rozwoju osobistym</p>
+    </header>
 
-  <div class="container" id="przyklady">
-    <h2>Praktyczne przykłady wykorzystania AI</h2>
-    <div class="box-container">
-      <div class="box">
-        <h3>AI w pisaniu tekstów</h3>
-        <p>Poznaj narzędzia, które pomagają tworzyć skuteczne treści marketingowe, opisy produktów i wpisy na bloga.</p>
+    <section class="container" id="przyklady" aria-labelledby="przyklady-heading">
+      <h2 id="przyklady-heading">Najbardziej przydatne zastosowania AI</h2>
+      
+      <div class="box-container">
+        <article class="box">
+          <h3>Generowanie treści</h3>
+          <p>Tworzenie unikalnych tekstów marketingowych, artykułów blogowych i opisów produktów z wykorzystaniem modeli językowych.</p>
+        </article>
+        
+        <article class="box">
+          <h3>Analiza danych</h3>
+          <p>Automatyczne przetwarzanie i wizualizacja dużych zbiorów danych dla lepszego podejmowania decyzji.</p>
+        </article>
+        
+        <article class="box">
+          <h3>Automatyzacja procesów</h3>
+          <p>Optymalizacja powtarzalnych zadań w biznesie poprzez inteligentne systemy automatyzacji.</p>
+        </article>
       </div>
-      <div class="box">
-        <h3>AI w analizie danych</h3>
-        <p>Dowiedz się, jak wykorzystać sztuczną inteligencję do interpretowania i wizualizacji danych.</p>
-      </div>
-      <div class="box">
-        <h3>AI w automatyzacji</h3>
-        <p>Zobacz, jak AI automatyzuje rutynowe zadania i oszczędza czas w Twoim biznesie lub domu.</p>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="container newsletter-form">
-    <h2>Zapisz się do newslettera</h2>
-    <p>Otrzymuj cotygodniowe podsumowanie AI</p>
-    <form>
-      <input type="email" placeholder="Twój email" />
-      <button type="submit" class="cta-button">Subskrybuj</button>
-    </form>
-  </div>
+    <section class="container newsletter-form" aria-labelledby="newsletter-heading">
+      <h2 id="newsletter-heading">Bądź na bieżąco</h2>
+      <p>Subskrybuj newsletter i otrzymuj cotygodniowe podsumowanie najnowszych trendów w AI</p>
+      
+      <form netlify>
+        <input type="email" placeholder="Twój adres email" required aria-label="Adres email">
+        <button type="submit" class="cta-button">Zapisz się</button>
+      </form>
+    </section>
 
-  <div class="container" id="kontakt">
-    <h2>Kontakt</h2>
-    <form class="contact-form" netlify>
-      <input type="email" placeholder="Twój email" required />
-      <textarea placeholder="Twoja wiadomość..." rows="4" required></textarea>
-      <button type="submit" class="cta-button">Wyślij</button>
-    </form>
-  </div>
+    <section class="container" id="kontakt" aria-labelledby="kontakt-heading">
+      <h2 id="kontakt-heading">Skontaktuj się z nami</h2>
+      
+      <form class="contact-form" netlify>
+        <input type="email" placeholder="Twój email" required aria-label="Adres email">
+        <textarea placeholder="Twoja wiadomość..." rows="5" required aria-label="Treść wiadomości"></textarea>
+        <button type="submit" class="cta-button">Wyślij wiadomość</button>
+      </form>
+    </section>
+  </main>
 
-  <footer>
-    <nav>
-      <a href="#start">Start</a>
-      <a href="#przyklady">AI</a>
-      <a href="#kontakt">Kontakt</a>
+  <footer aria-label="Stopka">
+    <nav aria-label="Linki stopki">
+      <ul>
+        <li><a href="#start">Start</a></li>
+        <li><a href="#przyklady">Przykłady</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
     </nav>
+    
     <div class="social-icons">
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="Profil na Twitterze"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Profil na LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" aria-label="Profil na GitHubie"><i class="fab fa-github"></i></a>
     </div>
-    <p>&copy; 2025 A.I Na Co dzień – Wszelkie prawa zastrzeżone.</p>
+    
+    <p>&copy; 2025 A.I Na Co dzień – Wszelkie prawa zastrzeżone</p>
   </footer>
 
   <script>
+    // Rozbudowany skrypt dla menu mobilnego
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
-    burger.addEventListener('click', () => {
+    const body = document.body;
+
+    function toggleMenu() {
+      const isExpanded = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', !isExpanded);
       navLinks.classList.toggle('active');
+      body.classList.toggle('nav-active');
+    }
+
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+        toggleMenu();
+      }
+    });
+
+    // Zamknij menu przy scrollu
+    window.addEventListener('scroll', () => {
+      if (navLinks.classList.contains('active')) {
+        toggleMenu();
+      }
     });
   </script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
-
-    burger.addEventListener('click', function () {
-      navLinks.classList.toggle('active');
-    });
-  });
-</script>
 </body>
 </html>
