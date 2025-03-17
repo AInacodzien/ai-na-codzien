@@ -25,7 +25,7 @@
 
     nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       padding: 1rem 2rem;
       background-color: rgba(13,17,23,0.8);
@@ -35,6 +35,15 @@
       top: 0;
       z-index: 100;
       flex-wrap: wrap;
+    }
+
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      cursor: pointer;
     }
 
     .nav-links {
@@ -51,15 +60,6 @@
 
     .nav-links a:hover {
       opacity: 0.8;
-    }
-
-    .burger {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--accent-color);
-      cursor: pointer;
     }
 
     @media (max-width: 768px) {
@@ -83,6 +83,7 @@
     header {
       background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
                   url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=80') center/cover;
+      background-attachment: fixed;
       color: white;
       text-align: center;
       padding: 8rem 2rem;
@@ -172,6 +173,19 @@
       color: #9ca3af;
     }
 
+    footer nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    footer nav a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
     .social-icons {
       display: flex;
       justify-content: center;
@@ -192,9 +206,6 @@
 </head>
 <body>
   <nav aria-label="Główne menu">
-    <a href="#start">Start</a>
-    <a href="#przyklady">Przykłady</a>
-    <a href="#kontakt">Kontakt</a>
     <button class="burger" aria-label="Menu mobilne">
       <i class="fas fa-bars"></i>
     </button>
@@ -256,7 +267,7 @@
   </section>
 
   <footer>
-    <nav aria-label="Stopka">
+    <nav>
       <a href="#start">Start</a>
       <a href="#przyklady">Przykłady</a>
       <a href="#kontakt">Kontakt</a>
