@@ -56,7 +56,7 @@
       <h2>Zapisz się do newslettera</h2>
       <p>Otrzymuj cotygodniowe podsumowanie AI</p>
       <form>
-        <input type="email" placeholder="Twój email">
+        <input type="email" placeholder="Twój email" required>
         <button type="submit" class="cta-button">Subskrybuj</button>
       </form>
     </section>
@@ -89,6 +89,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       const burger = document.querySelector('.burger');
       const navLinks = document.querySelector('.nav-links');
+
       burger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
       });
