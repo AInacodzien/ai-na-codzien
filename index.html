@@ -1,26 +1,206 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A.I Na Co dzień</title>
-  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4712/4712032.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #0d1117;
+      --text-color: #e6edf3;
+      --accent-color: #00ffcc;
+      --box-bg: #161b22;
+      --border-color: #30363d;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(13,17,23,0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,255,204,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.8;
+    }
+
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .burger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--bg-color);
+        padding: 1rem 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+
+    header {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                  url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: white;
+      text-align: center;
+      padding: 8rem 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+    }
+
+    header p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .box-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+
+    .box {
+      background-color: var(--box-bg);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: transform 0.3s;
+      border: 1px solid var(--border-color);
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+    }
+
+    .box img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .contact-form,
+    .newsletter-form {
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      background: var(--box-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      border-radius: 5px;
+    }
+
+    .cta-button {
+      background: var(--accent-color);
+      color: var(--bg-color);
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: filter 0.3s;
+    }
+
+    .cta-button:hover {
+      filter: brightness(0.9);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #1f2937;
+      color: #9ca3af;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .social-icons a {
+      color: var(--accent-color);
+      font-size: 1.5rem;
+      transition: opacity 0.3s;
+    }
+
+    .social-icons a:hover {
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
-  <nav>
-    <a href="#start" class="logo">
-      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712032.png" alt="logo AI" />
-      <span>A.I Na Co dzień</span>
-    </a>
-    <button class="burger" aria-label="Menu">
+  <nav aria-label="Główne menu">
+    <a href="#start">Start</a>
+    <a href="#przyklady">Przykłady</a>
+    <a href="#kontakt">Kontakt</a>
+    <button class="burger" aria-label="Menu mobilne">
       <i class="fas fa-bars"></i>
     </button>
     <div class="nav-links">
       <a href="#start">Start</a>
-      <a href="#przyklady">AI</a>
+      <a href="#przyklady">Przykłady</a>
       <a href="#kontakt">Kontakt</a>
     </div>
   </nav>
@@ -30,57 +210,61 @@
     <p>Odkrywaj potencjał sztucznej inteligencji w codziennym życiu – praktyczne porady, trendy i przykłady.</p>
   </header>
 
-  <main>
-    <section class="container" id="przyklady">
-      <h2>Praktyczne przykłady wykorzystania AI</h2>
-      <div class="box-container">
-        <div class="box">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1614064641938-3bbee52942c4?auto=format&fit=crop&w=800&q=80" alt="AI w pisaniu tekstów">
-          <h3>AI w pisaniu tekstów</h3>
-          <p>Poznaj narzędzia, które pomagają tworzyć skuteczne treści marketingowe, opisy produktów i wpisy na bloga.</p>
-        </div>
-        <div class="box">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1601987077224-9960c2b1c2da?auto=format&fit=crop&w=800&q=80" alt="AI w analizie danych">
-          <h3>AI w analizie danych</h3>
-          <p>Dowiedz się, jak wykorzystać sztuczną inteligencję do interpretowania i wizualizacji danych.</p>
-        </div>
-        <div class="box">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1615632364011-3b902857dddb?auto=format&fit=crop&w=800&q=80" alt="AI w automatyzacji">
-          <h3>AI w automatyzacji</h3>
-          <p>Zobacz, jak AI automatyzuje rutynowe zadania i oszczędza czas w Twoim biznesie lub domu.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="container newsletter-form">
-      <h2>Zapisz się do newslettera</h2>
-      <p>Otrzymuj cotygodniowe podsumowanie AI</p>
-      <form>
-        <input type="email" placeholder="Twój email" required>
-        <button type="submit" class="cta-button">Subskrybuj</button>
-      </form>
-    </section>
-
-    <section class="container" id="kontakt">
-      <h2>Kontakt</h2>
-      <form class="contact-form" netlify>
-        <input type="email" placeholder="Twój email" required>
-        <textarea placeholder="Twoja wiadomość..." rows="4" required></textarea>
-        <button type="submit" class="cta-button">Wyślij</button>
-      </form>
-    </section>
+  <main class="container" id="przyklady">
+    <h2>Praktyczne przykłady wykorzystania AI</h2>
+    <div class="box-container">
+      <article class="box">
+        <img loading="lazy" 
+             src="https://images.unsplash.com/photo-1614064641938-3bbee52942c4" 
+             alt="AI generujące tekst">
+        <h3>AI w pisaniu tekstów</h3>
+        <p>Poznaj narzędzia pomagające tworzyć skuteczne treści marketingowe i opisy produktów.</p>
+      </article>
+      <article class="box">
+        <img loading="lazy" 
+             src="https://images.unsplash.com/photo-1601987077224-9960c2b1c2da" 
+             alt="AI analizujące dane">
+        <h3>AI w analizie danych</h3>
+        <p>Wykorzystaj sztuczną inteligencję do interpretowania i wizualizacji danych.</p>
+      </article>
+      <article class="box">
+        <img loading="lazy" 
+             src="https://images.unsplash.com/photo-1615632364011-3b902857dddb" 
+             alt="Proces automatyzacji">
+        <h3>AI w automatyzacji</h3>
+        <p>Automatyzacja rutynowych zadań oszczędzająca czas w biznesie i domu.</p>
+      </article>
+    </div>
   </main>
 
+  <section class="container newsletter-form">
+    <h2>Zapisz się do newslettera</h2>
+    <p>Otrzymuj cotygodniowe podsumowanie nowości ze świata AI</p>
+    <form netlify>
+      <input type="email" placeholder="Twój email" required>
+      <button type="submit" class="cta-button">Subskrybuj</button>
+    </form>
+  </section>
+
+  <section class="container" id="kontakt">
+    <h2>Kontakt</h2>
+    <form class="contact-form" netlify>
+      <input type="email" placeholder="Twój email" required>
+      <textarea placeholder="Twoja wiadomość..." rows="4" required></textarea>
+      <button type="submit" class="cta-button">Wyślij</button>
+    </form>
+  </section>
+
   <footer>
-    <nav>
+    <nav aria-label="Stopka">
       <a href="#start">Start</a>
-      <a href="#przyklady">AI</a>
+      <a href="#przyklady">Przykłady</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
     <div class="social-icons">
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
     </div>
     <p>&copy; 2025 A.I Na Co dzień – Wszelkie prawa zastrzeżone.</p>
   </footer>
@@ -89,7 +273,6 @@
     document.addEventListener('DOMContentLoaded', () => {
       const burger = document.querySelector('.burger');
       const navLinks = document.querySelector('.nav-links');
-
       burger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
       });
