@@ -1,4 +1,3 @@
-/* Zmienne CSS */
 :root {
   --bg-color: #0d1117;
   --text-color: #e6edf3;
@@ -8,7 +7,6 @@
   --nav-height: 70px;
 }
 
-/* Reset i podstawowe style */
 * {
   margin: 0;
   padding: 0;
@@ -25,7 +23,6 @@ body {
   flex-direction: column;
 }
 
-/* Nawigacja */
 nav {
   display: flex;
   justify-content: space-between;
@@ -100,7 +97,6 @@ nav {
   padding: 0.5rem;
 }
 
-/* Główna zawartość */
 main {
   margin-top: var(--nav-height);
   flex: 1;
@@ -139,12 +135,6 @@ header {
   transform: translateY(-3px);
 }
 
-.contact-form,
-.newsletter-form form {
-  display: flex;
-  flex-direction: column;
-}
-
 input,
 textarea {
   width: 100%;
@@ -173,7 +163,6 @@ textarea {
   filter: brightness(0.9);
 }
 
-/* Stopka */
 footer {
   background-color: #1f2937;
   padding: 3rem 2rem;
@@ -198,7 +187,6 @@ footer {
   opacity: 0.8;
 }
 
-/* Media queries */
 @media (min-width: 768px) {
   .burger {
     display: none;
