@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="no">
@@ -97,6 +98,14 @@
         opacity: 1;
         max-height: 300px;
       }
+      .box:active {
+        transform: scale(0.97);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .box:active h3 {
+        color: var(--accent-color);
+      }
     }
     header {
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -190,12 +199,12 @@
       max-width: 80px;
     }
   
-@media (max-width: 768px) {
-  .box.fake-hover {
-    background-color: #1e232a !important;
-    transform: translateY(-12px) scale(1.03);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
-  }
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid var(--accent-color);
 }
 </style>
 </head>
@@ -211,12 +220,12 @@
 <a href="index.html#kontakt">Kontakt</a>
 </div>
 </nav>
-<header>
+<img alt="Nowoczesna biblioteka bez kuchni, z żółtymi krzesłami" class="hero-image" src="biblioteka1.png"/><header>
 <h1>BLOG: AI i hverdagen</h1>
 </header>
 <main class="container">
 <article class="box">
-<img alt="AI illustrasjon" src="obraz.png"/>
+<img alt="Przytulny nordycki salon z dużym oknem" src="salon1.png"/>
 <div class="box-content">
 <h3>Hva er kunstig intelligens? <span style="font-size: 0.85rem; font-weight: normal;">– 23. mars 2025</span></h3>
 <p>Kunstig intelligens (AI) er teknologi som kan lære, forstå og hjelpe oss i dagliglivet. Du møter AI i mobilen, på nett, i bilen og hjemme – oftest uten å tenke over det.</p>
@@ -240,50 +249,20 @@
 <img alt="AI-logo" class="footer-logo" src="edunso(14).png"/>
 <p>© 2025 Kunstig intelligens i hverdagen – Alle rettigheter reservert.</p>
 </footer>
-<script>document.addEventListener('DOMContentLoaded', () => {
-  const burger = document.querySelector('.burger');
-  const navLinks = document.querySelector('.nav-links');
-  const links = document.querySelectorAll('.nav-links a');
-
-  if (burger && navLinks) {
-    burger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const burger = document.querySelector('.burger');
+      const navLinks = document.querySelector('.nav-links');
+      const links = document.querySelectorAll('.nav-links a');
+      if (burger && navLinks) {
+        burger.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+        links.forEach(link => link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        }));
+      }
     });
-    links.forEach(link => link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-    }));
-  }
-
-  // FAKE HOVER dla urządzeń dotykowych (iPhone, iPad, Safari fix)
-  const isTouchDevice = (
-    'ontouchstart' in window ||
-    navigator.maxTouchPoints > 0 ||
-    /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-    (navigator.userAgent.includes("Macintosh") && 'ontouchend' in document)
-  );
-
-  if (isTouchDevice) {
-    const boxes = document.querySelectorAll('.box');
-
-    boxes.forEach(box => {
-      const link = box.querySelector('a');
-
-      box.addEventListener('click', (e) => {
-        if (link) {
-          e.preventDefault();
-        }
-
-        box.classList.add('fake-hover');
-
-        setTimeout(() => {
-          box.classList.remove('fake-hover');
-          if (link) {
-            window.location.href = link.href;
-          }
-        }, 300);
-      });
-    });
-  }
-});</script>
+  </script>
 </body>
 </html>
