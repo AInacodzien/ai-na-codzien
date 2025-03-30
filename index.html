@@ -128,41 +128,49 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
       padding: 2rem 0;
+      grid-auto-rows: 380px;  /* Ustalona stała wysokość wiersza */
     }
     @media (max-width: 768px) {
       .box-container {
         grid-template-columns: 1fr;
       }
     }
+    /* Ustawienie linków kafelków jako blokowych */
+    .box-container a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Wewnętrzny element .box w linku rozciąga się na pełną wysokość */
+    .box-container a .box {
+      height: 100%;
+    }
+    /* Ujednolicenie minimalnej wysokości kafelków (opcjonalnie, bo grid-auto-rows już ustala 380px) */
     .box {
-  background-color: var(--box-bg);
-  border-radius: 10px;
-  padding: 1.5rem;
-  border: 2px solid var(--border-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  will-change: transform;
-}
-
-.box:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
-}
-
-.box:hover h3 {
-  color: var(--accent-color);
-}
-
-@media (max-width: 768px) {
-  .box:active {
-    transform: scale(0.97);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  }
-
-  .box:active h3 {
-    color: var(--accent-color);
-  }
-}
-
+      min-height: 380px;
+      background-color: var(--box-bg);
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 2px solid var(--border-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform;
+    }
+    .box:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+    }
+    .box:hover h3 {
+      color: var(--accent-color);
+    }
+    @media (max-width: 768px) {
+      .box:active {
+        transform: scale(0.97);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
+      .box:active h3 {
+        color: var(--accent-color);
+      }
+    }
     .box img {
       width: 100%;
       height: 200px;
@@ -265,26 +273,38 @@
   <main class="container" id="eksempler">
     <h2>Praktiske eksempler på bruk av AI</h2>
     <div class="box-container">
-      <article class="box">
-        <img src="ai-hjemmet.png" alt="AI i hjemmet">
-        <h3>AI i hjemmet</h3>
-        <p>Se hvordan kunstig intelligens kan gjøre hverdagen din mer komfortabel, effektiv og trygg – fra smarte assistenter til energistyring.</p>
-      </article>
-      <article class="box">
-        <img src="ai-verktoy.png" alt="AI-verktøy">
-        <h3>AI-verktøy</h3>
-        <p>Utforsk gratis og betalte AI-verktøy som hjelper deg med tekst, bilder, video og produktivitet.</p>
-      </article>
-      <article class="box">
-        <img src="ai-eldre.png" alt="AI for eldre">
-        <h3>AI for eldre</h3>
-        <p>Oppdag hvordan AI kan hjelpe eldre med påminnelser, samtaler og trygghet i hverdagen.</p>
-      </article>
-      <article class="box">
-        <img src="ai-tips.png" alt="AI-tips og triks">
-        <h3>AI-tips og triks</h3>
-        <p>Lær smarte triks som gjør det lettere å bruke AI – uansett om du er nybegynner eller mer erfaren.</p>
-      </article>
+      <!-- AI i hjemmet – podstrona1.html -->
+      <a href="podstrona1.html">
+        <article class="box">
+          <img src="ai-hjemmet.png" alt="AI i hjemmet">
+          <h3>AI i hjemmet</h3>
+          <p>Se hvordan kunstig intelligens kan gjøre hverdagen din mer komfortabel, effektiv og trygg – fra smarte assistenter til energistyring.</p>
+        </article>
+      </a>
+      <!-- AI-verktøy – podstrona2.html -->
+      <a href="podstrona2.html">
+        <article class="box">
+          <img src="ai-verktoy.png" alt="AI-verktøy">
+          <h3>AI-verktøy</h3>
+          <p>Utforsk gratis og betalte AI-verktøy som hjelper deg med tekst, bilder, video og produktivitet.</p>
+        </article>
+      </a>
+      <!-- AI-tips og triks – podstrona3.html -->
+      <a href="podstrona3.html">
+        <article class="box">
+          <img src="ai-tips.png" alt="AI-tips og triks">
+          <h3>AI-tips og triks</h3>
+          <p>Lær smarte triks som gjør det lettere å bruke AI – uansett om du er nybegynner eller mer erfaren.</p>
+        </article>
+      </a>
+      <!-- AI for eldre – podstrona4.html -->
+      <a href="podstrona4.html">
+        <article class="box">
+          <img src="ai-eldre.png" alt="AI for eldre">
+          <h3>AI for eldre</h3>
+          <p>Oppdag hvordan AI kan hjelpe eldre med påminnelser, samtaler og trygghet i hverdagen.</p>
+        </article>
+      </a>
     </div>
   </main>
 
