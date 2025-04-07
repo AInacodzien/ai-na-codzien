@@ -124,12 +124,15 @@
       background-color: var(--section-bg);
     }
     .box-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      padding: 2rem 0;
-      grid-auto-rows: 380px;  /* Ustalona stała wysokość wiersza */
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+  grid-auto-rows: 380px;
+  justify-content: center; /* nowość */
+}
+
+
     @media (max-width: 768px) {
       .box-container {
            grid-template-columns: 1fr;
