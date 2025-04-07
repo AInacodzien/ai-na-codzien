@@ -129,16 +129,17 @@
   gap: 2rem;
   padding: 2rem 0;
   grid-auto-rows: 380px;
-  justify-content: center; /* nowość */
+  justify-content: center;
 }
 
-
-    @media (max-width: 768px) {
-      .box-container {
-           grid-template-columns: 1fr;
+@media (max-width: 950px) {
+  .box-container {
+    grid-template-columns: 1fr !important;
     grid-auto-rows: auto;
+    gap: 1.5rem;
   }
 }
+
     /* Ustawienie linków kafelków jako blokowych */
     .box-container a {
       display: block;
